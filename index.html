@@ -1,0 +1,430 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Log In</title>
+</head>
+<body>
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container mimicking mobile UI */
+        .login-container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 412px;
+            height: 100vh;
+            max-height: 892px;
+            display: flex;
+            flex-direction: column;
+            padding: 0 24px;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+
+        /* Header */
+        .login-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 56px;
+            color: #333;
+        }
+
+        .back-btn {
+            font-size: 20px;
+            color: #ee4d2d;
+            cursor: pointer;
+        }
+
+        .login-header h1 {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .help-btn {
+            font-size: 20px;
+            color: #ee4d2d;
+            cursor: pointer;
+        }
+
+        /* Logo Section */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+
+        .shopee-logo {
+            position: relative;
+            color: #ff4500;
+            font-size: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-letter {
+            position: absolute;
+            color: white;
+            font-size: 34px;
+            font-weight: bold;
+            font-family: 'Arial Black', sans-serif;
+            bottom: 12px;
+        }
+
+        /* Form Styling */
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 12px 0;
+        }
+
+        .input-icon {
+            font-size: 18px;
+            color: #757575;
+            margin-right: 12px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .input-group input {
+            border: none;
+            outline: none;
+            font-size: 15px;
+            width: 100%;
+            color: #333;
+        }
+
+        .input-group input::placeholder {
+            color: #ccc;
+        }
+
+        /* Password Specific Actions */
+        .password-group {
+            justify-content: space-between;
+        }
+
+        .password-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toggle-password {
+            color: #757575;
+            cursor: pointer;
+        }
+
+        .divider {
+            color: #e0e0e0;
+        }
+
+        .forgot-link {
+            color: #0055aa;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* Action Buttons */
+        .login-btn {
+            background-color: #f3f3f3;
+            color: #ccc;
+            border: none;
+            border-radius: 4px;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: not-allowed;
+            margin-top: 12px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            margin-top: 10px;
+            color: dimgray;
+        }
+
+
+        input {
+            width: 350px;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid dimgray;
+            border-radius: 0px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 350px;
+            margin-top: 15px;
+            padding: 10px;
+            background-color: white;
+            color: dimgray;
+            border-radius: 0px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 15px;
+
+        }
+
+        /* Call this active class dynamically later if fields are populated */
+        .login-btn.active {
+            background-color: #ee4d2d;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .phone-login-option {
+            text-align: right;
+            margin-top: 14px;
+        }
+
+        .phone-login-option a {
+            color: #0055aa;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* Or Divider */
+        .or-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 30px 0;
+            color: #ccc;
+            font-size: 12px;
+        }
+
+        .or-divider::before, .or-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #eee;
+        }
+
+        .or-divider span {
+            padding: 0 10px;
+        }
+
+        /* Social Buttons */
+        .social-login-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .social-btn {
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 12px;
+            font-size: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .social-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .passkey-icon {
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* Sign Up Option */
+        .signup-prompt {
+            text-align: center;
+            margin-top: auto; 
+            padding: 30px 0 20px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .signup-prompt a {
+            color: #0055aa;
+            text-decoration: none;
+        }
+
+        /* Footer Biometric Switch */
+        .biometric-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding: 16px 0 24px;
+        }
+
+        .biometric-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #555;
+            font-size: 13px;
+        }
+
+        .fingerprint-icon {
+            font-size: 18px;
+            color: #757575;
+        }
+
+        .small-help {
+            color: #b0b0b0;
+            font-size: 13px;
+        }
+
+        /* Toggle Switch Styling */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .3s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .3s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #2ecc71; 
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+    </style>
+
+    <div class="login-container">
+        <header class="login-header">
+            <i class="fa-solid fa-arrow-left back-btn"></i>
+            <h1>Log In</h1>
+            <i class="fa-regular fa-circle-question help-btn"></i>
+        </header>
+
+        <div class="logo-container">
+            <div class="shopee-logo">
+            <img height="90 width=150"src="shopee.jpg">
+            
+            </div>
+        </div>
+
+        <div id="login-form">
+            <label>Username</label>
+            <input type="username" id="username" placeholder="Enter your username">
+
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Enter your password">
+
+             <span class="divider">|</span>
+            <a href="#" class="forgot-link">Forgot?</a>
+         </div>
+
+            <button onclick="login()" >Log In</button>
+
+         <script>
+           function login() {
+
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+             if(username === "roxescano" && password === "rox123") {
+             window.location.href = "profile.html";
+             }
+             if(username === "angelmoreno" && password === "faith0120") {
+             window.location.href = "Mprofile.html";
+             }
+             if(username === "totopardos" && password === "totojr13") {
+             window.location.href = "dprofile.html";
+            }
+
+          }
+         </script>
+        
+        </form>
+
+        <div class="phone-login-option">
+            <a href="#">Log In with Phone Number</a>
+        </div>
+
+        <div class="or-divider">
+            <span>OR</span>
+        </div>
+
+        <div class="social-login-container">
+            <button class="social-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google logo" class="social-icon">
+                Login with Google
+            </button>
+            <button class="social-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_(2019).png" alt="Facebook logo" class="social-icon">
+                Login with Facebook
+            </button>
+            <button class="social-btn">
+                <i class="fa-solid fa-key passkey-icon"></i>
+                Login with Passkey
+            </button>
+        </div>
+
+        <div class="signup-prompt">
+            Don't have an account? <a href="lab12(A).html">Sign up</a>
+        </div>
+    
+</head>
+</body>
+
+
+
+

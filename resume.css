@@ -1,0 +1,88 @@
+body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F8F5FC; /* Ultra light pastel purple background */
+            color: #333333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        /* Container */
+        .resume-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(107, 33, 168, 0.05);
+            border-top: 8px solid #D8B4FE; /* Pastel purple accent border */
+        }
+
+        /* Headings */
+        h2 {
+            color: #6B21A8; /* Deep pastel purple for headers */
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #E9D5FF; /* Light purple divider */
+            padding-bottom: 5px;
+        }
+
+        /* Paragraphs and Lists */
+        p, ul {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Seminar/Training Items */
+        .seminar-item {
+            margin-bottom: 20px;
+        }
+
+        .seminar-title {
+            font-weight: 600;
+            color: #4C1D95;
+        }
+
+        .seminar-meta {
+            font-style: italic;
+            color: #666666;
+            font-size: 0.95rem;
+        }
+
+        .seminar-speaker {
+            font-size: 0.95rem;
+            color: #555555;
+        }
+
+        /* Footer / Back Link */
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            border-top: 1px solid #E9D5FF;
+            padding-top: 20px;
+        }
+
+        .back-link {
+            display: inline-block;
+            text-decoration: none;
+            color: #7C3AED;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: #4C1D95;
+        }
